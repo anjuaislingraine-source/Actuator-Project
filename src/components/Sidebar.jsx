@@ -1,0 +1,75 @@
+import SidebarItem from "./SidebarItem";
+import {
+    LayoutDashboard,
+    Wrench,
+    ListFilter,
+    Wifi,
+    Monitor,
+} from "lucide-react";
+
+export default function Sidebar({ setActiveTab, activeTab}) {
+    return (
+        <aside className="w-[220px] bg-white border-r border-gray-200 p-4 flex flex-col min-h-screen">
+            {/*Profile and Sign Out */}
+            <div className="flex flex-col items-center mb-6">
+                <img
+                    src="https://cdn-icons-png.flaticon.com/512/295/295128.png"
+                    alt="Profile"
+                    className="w-20 h-20 rounded-full border mb-2"
+                />
+                <h2 className="text-lg font-bold">Welcome</h2>
+                <button
+                    //onClick={logout}
+                    className="mt-5 px-4 py-1 border rounded text-sm text-[#08549c] border-[#08549c] hover:bg-[#08549c] hover:text-white transition">
+                    Sign Out
+                </button>
+                <p className="mt-5 text-xs text-gray-500">
+                    Actuator Sizing Version 4.8.3
+                </p>
+            </div>
+            {/*Sidebar Navigation*/}
+            <nav classname="space-y-2">
+                <SidebarItem
+                    icon={<LayoutDashboard size={18} />}
+                    label="Home"
+                    isActive={activeTab === "Home"}
+                    onClick={() => setActiveTab("Home")}
+                />
+                <SidebarItem
+                    icon={<Wrench size={18} />}
+                    label="Actuator Sizing"
+                    isActive={activeTab === "Actuator Sizing"}
+                    onClick={() => setActiveTab("Actuator Sizing")}
+                />
+                <SidebarItem
+                    icon={<Wrench size={18} />}
+                    label="S98 Part#"
+                    isActive={activeTab === "S98Part"}
+                    onClick={() => setActiveTab("S98Part")}
+                />
+                <SidebarItem
+                    icon={<ListFilter size={18} />}
+                    label="Part# Decode"
+                    isActive={activeTab === "Part# Decode"}
+                    onClick={() => setActiveTab("Part# Decode")}
+                />
+                <SidebarItem
+                    icon={<Wifi size={18} />}
+                    label="SS4 Sensor"
+                    isActive={activeTab === "SS4 Sensor"}
+                    onClick={() => setActiveTab("SS4 Sensor")}
+                />
+                <SidebarItem
+                    icon={<Monitor size={18} />}
+                    label="SSX Monitor"
+                    isActive={activeTab === "SSX Monitor"}
+                    onClick={() => setActiveTab("SSX Monitor")}
+                />
+            </nav>
+            {/* {Datasheet Button} */}
+
+           
+        </aside>
+
+    );
+};
