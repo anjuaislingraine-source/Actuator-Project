@@ -15,6 +15,7 @@ const Dashboard = () => {
     // Function to render the corresponding component based on the active tab
   const renderView = () => {
     switch (activeTab) {
+    
       case "Home":
         return <Home/>;
       case "Actuator Sizing":
